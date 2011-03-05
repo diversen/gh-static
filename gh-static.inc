@@ -12,7 +12,7 @@ function gh_static_generate (){
 
 function gh_static_push (){
     $static_dir = mainCli::$ini['gh-static']['gh_static_site_dir'];
-    $command = "cd $static_dir && git add . && git commit -a \"auto-commit\" && git push";
+    echo $command = "cd $static_dir && git add . && git commit -m \"auto-commit\" && git push";
     cos_exec($command);
     //$command = "rm -rf ./$url";
     //cos_exec($command);
