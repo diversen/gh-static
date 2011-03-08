@@ -43,7 +43,7 @@ function gh_static_push (){
 
 // enable commands in shell - first we set a base command
 mainCli::setCommand('gh-static', array(
-    'description' => 'Sane check to see if hosts specified in config are alive',
+    'description' => 'Command to generate a static site from a dynamic',
 ));
 
 // then we set a option
