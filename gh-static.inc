@@ -11,6 +11,12 @@ function gh_static_generate (){
     // The url to index (mygithub)
     $url = mainCli::$ini['gh-static']['gh_static_index_url'];
 
+    // create dir where files will be put
+    if (!file_exists($static_dir)) {
+        $command = "mkdir $static_dir";
+        cos_exec($command);
+    }
+    
     // wget command
     $command = "wget -m -k -K -E  $url";
     
@@ -19,10 +25,13 @@ function gh_static_generate (){
 
     // copy the content of the url to the static dir
     // (/home/dennis/www/diversen.github.com)
+    //$command = "mkdir $static_dir";
+    
+    
     $command = "cp -rf ./$url/* $static_dir";
 
     // execute
-    cos_exec($command);
+    system($command);
 }
 
 /**
