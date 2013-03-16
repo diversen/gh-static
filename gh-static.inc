@@ -6,10 +6,10 @@
 function gh_static_generate (){
 
     // ini settings will be found in the static var mainClin::$ini
-    $static_dir = mainCli::$ini['gh-static']['gh_static_site_dir'];
+    $static_dir = config::getModuleIni('gh_static_site_dir');
 
     // The url to index (mygithub)
-    $url = mainCli::$ini['gh-static']['gh_static_index_url'];
+    $url = config::getModuleIni('gh_static_index_url');
 
     // create dir where files will be put
     if (!file_exists($static_dir)) {
@@ -40,7 +40,7 @@ function gh_static_generate (){
 function gh_static_push (){
 
     // the static dir where we will push from
-    $static_dir = mainCli::$ini['gh-static']['gh_static_site_dir'];
+    $static_dir = config::getModuleIni('gh_static_site_dir');
 
     // cd into dir add - commit - push
     $command = "cd $static_dir && git add . && git commit -m \"auto-commit\" && git push";
